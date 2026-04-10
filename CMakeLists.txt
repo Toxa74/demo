@@ -93,10 +93,6 @@ set(PROJECT_SOURCES
         mainprocess.cpp
         mainprocess.h
         RecognizerCore.h
-        antispoofing/AntispoofingONNXRecognizer.cpp
-        antispoofing/AntispoofingONNXRecognizer.h
-        antispoofing/AntispoofingDetector.cpp
-        antispoofing/AntispoofingDetector.h
 
         face/FaceDetectONNXRecognizer.cpp
         face/FaceDetectONNXRecognizer.h
@@ -112,13 +108,6 @@ set(PROJECT_SOURCES
         guiQuick.h
         guiQuick.cpp
         CppQmlObjects.h
-        contour/ONNXContourRecognizer.cpp
-        contour/ONNXContourRecognizer.h
-        contour/Contour.cpp
-        contour/Contour.h
-        contour/ContourDetector.cpp
-        contour/ContourDetector.h
-        contour/ContourDebugger.h
 
         feature/ONNXVFeatureRecognizer.cpp
         feature/ONNXVFeatureRecognizer.h
@@ -139,10 +128,6 @@ set(PROJECT_SOURCES
         FaceTurnHint.h
 
         faceprocessor.h faceprocessor.cpp
-
-       # face/FaceDetectorCore.h
-       # face3diviimpl.h face3diviimpl.cpp
-       # face/facedetector3divi.h face/facedetector3divi.cpp
 
         Settings.h
         JsonCfg.cpp JsonCfg.h
@@ -223,19 +208,6 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linu
     target_link_libraries(${TARGET_NAME}  INTERFACE  PkgConfig::deps)
 endif()
 
-#--------------------------------------------------------------------------------------
-# 3DiVi FaceSDK
-#--------------------------------------------------------------------------------------
-message(STATUS "FaceDetectorDemo: FACE_SDK_3DIVI_PATH : ${FACE_SDK_3DIVI_PATH}")
-#target_compile_definitions(${TARGET_NAME} PRIVATE FACE_SDK_3DIVI="\\"${FACE_SDK_3DIVI_PATH}\\"")
-#target_compile_definitions(${TARGET_NAME} PRIVATE FACE_SDK_3DIVI="${FACE_SDK_3DIVI_PATH}")
-#target_include_directories(${TARGET_NAME} PRIVATE ${FACE_SDK_3DIVI_PATH}/include)
-#if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
-#    target_link_libraries(${TARGET_NAME} PRIVATE ${FACE_SDK_3DIVI_PATH}/bin/facerec.dll)
-#else()
-#    target_link_libraries(${TARGET_NAME} PRIVATE ${FACE_SDK_3DIVI_PATH}/lib/libfacerec.so)
-#    target_link_libraries(${TARGET_NAME} PRIVATE  dl)
-#endif()
 
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
